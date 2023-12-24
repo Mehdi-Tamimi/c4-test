@@ -25,10 +25,45 @@
 }
 
 .header {
-    @apply bg-[#183661] w-full h-16 px-4 flex items-center
+    @apply bg-[#183661] w-full h-16 px-4 flex items-center relative
 }
 
 .loginButton {
-    @apply  w-fit text-center items-center text-sm text-[#DD6B4D]
-     border-[#DD6B4D] border-2 rounded-xl px-3 py-2
+    @apply  w-fit text-center items-center text-sm text-[#DAE1E7]
+     border-[#DAE1E7] border-2 rounded-xl px-3 py-2
+}
+
+.menu_holder {
+    @apply w-10 py-3
+}
+.menu {
+    @apply w-full h-full
+}
+
+.map_container {
+    @apply px-4 py-3 bg-[#DAE1E7]
+}
+.map_holder {
+    @apply w-full
+}
+.map {
+    @apply w-full h-full
+}
+
+.sideMenu {
+    transition: right .5s ease-in-out;
+    @apply w-screen h-screen bg-[#183661] absolute right-[-100vw] px-4 top-0
+}
+.open_sideMenu {
+    @apply right-0 
+}
+
+.items {
+    @apply border-t-2 border-[#DAE1E7] flex flex-col w-full
+}
+.item_holder {
+    @apply flex items-center
+}
+.item_text {
+    @apply text-base text-[#DAE1E7] pr-3
 }
