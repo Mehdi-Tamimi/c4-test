@@ -1,9 +1,15 @@
 import accountLogo from '../assets/icons/sharp-account-circle.svg'
 import closeMenu from '../assets/icons/close-line.svg'
+import { useNavigate } from 'react-router-dom'
+
 
 
 export default function SideMenu({isOpen,setIsOpen}) {
-
+    const navigate = useNavigate()
+    const handleOnClick = () => {
+        navigate('/login')
+        setIsOpen(false)
+    }
     return (
         <div className={`sideMenu ${isOpen? 'open_sideMenu' : null}`}>
             <div onClick={() => setIsOpen(false)} className="menu_holder">
@@ -11,7 +17,7 @@ export default function SideMenu({isOpen,setIsOpen}) {
             </div>
 
             <div className='items'>
-                <div className='item_holder'>
+                <div onClick={() => handleOnClick()} className='item_holder'>
                     <div className='menu_holder'>
                         <img className='menu' src={accountLogo} alt={'account'}/>
                     </div>

@@ -67,3 +67,33 @@
 .item_text {
     @apply text-base text-[#DAE1E7] pr-3
 }
+
+.login_page {
+    @apply w-full flex justify-center pt-16
+}
+.login {
+    @apply flex flex-col items-center border-[#183661] border-2 px-4 py-6
+    rounded-2xl
+}
+.form_choise {
+    @apply flex justify-evenly w-full pb-8
+}
+.login_form {
+    @apply flex flex-col
+}
+
+.login_items {
+    @apply flex flex-col py-3
+
+}
+.item_lable {
+    @apply pb-4 text-[#183661]
+}
+.item_input {
+    @apply border-2 border-[#DD6B4D] p-2 rounded-lg outline-none
+     placeholder:text-[#DD6B4D]
+}
+
+.submitButton {
+    @apply w-full bg-[#183661] mt-2 text-[#DD6B4D] h-fit py-2 rounded-lg text-lg
+}
