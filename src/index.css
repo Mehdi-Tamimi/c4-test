@@ -5,7 +5,7 @@
 * {
     margin: 0;
     padding: 0;
-    line-height: 0;
+    line-height: 100%;
     box-sizing: border-box;
     direction: rtl;
     font-family: 'iranyekanRegular';
@@ -21,7 +21,7 @@
 }
 
 .container {
-    @apply flex flex-col
+    @apply flex flex-col 
 }
 
 .header {
@@ -37,7 +37,7 @@
     @apply w-10 py-3
 }
 .menu {
-    @apply w-full h-full
+    @apply w-full h-full cursor-pointer
 }
 
 .map_container {
@@ -65,18 +65,21 @@
     @apply flex items-center
 }
 .item_text {
-    @apply text-base text-[#DAE1E7] pr-3
+    @apply text-base text-[#DAE1E7] pr-3 cursor-pointer
 }
 
 .login_page {
-    @apply w-full flex justify-center pt-16
+    @apply w-full h-screen flex justify-center pt-16 bg-[#DAE1E7]
 }
 .login {
-    @apply flex flex-col items-center border-[#183661] border-2 px-4 py-6
-    rounded-2xl
+    @apply flex flex-col items-center border-[#183661] border-2 px-4 py-6 bg-white
+    rounded-2xl h-fit
 }
 .form_choise {
-    @apply flex justify-evenly w-full pb-8
+    @apply flex justify-evenly w-full pb-4 h-fit
+}
+.choise {
+    @apply cursor-pointer
 }
 .login_form {
     @apply flex flex-col
@@ -87,7 +90,7 @@
 
 }
 .item_lable {
-    @apply pb-4 text-[#183661]
+    @apply pb-2 text-[#183661]
 }
 .item_input {
     @apply border-2 border-[#DD6B4D] p-2 rounded-lg outline-none
@@ -96,4 +99,7 @@
 
 .submitButton {
     @apply w-full bg-[#183661] mt-2 text-[#DD6B4D] h-fit py-2 rounded-lg text-lg
+}
+.validation_message {
+    @apply text-sm text-[#183661]
 }
