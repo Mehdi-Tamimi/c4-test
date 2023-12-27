@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 
 
 
-export default function SideMenu({isOpen,setIsOpen}) {
+export default function SideMenu({isOpen,setIsOpen,isLogin}) {
     const navigate = useNavigate()
     const handleOnClick = () => {
         navigate('/login')
@@ -22,7 +22,7 @@ export default function SideMenu({isOpen,setIsOpen}) {
                         <img className='menu' src={accountLogo} alt={'account'}/>
                     </div>
                     <div className='item_text'>
-                        ورود / ثبت نام
+                       ورورد / ثبت نام
                     </div>
                 </div>
             </div>

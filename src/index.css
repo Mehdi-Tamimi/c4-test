@@ -20,14 +20,16 @@
     src: url('./assets/fonts/iranyekanwebbold.woff');
 }
 
-.container {
+.main_container {
     @apply flex flex-col 
 }
 
 .header {
-    @apply bg-[#183661] w-full h-16 px-4 flex items-center relative
+    @apply bg-[#183661] w-full h-16 px-4 flex items-center relative justify-between
 }
-
+.title {
+    @apply text-[#DAE1E7] text-sm tab:text-2xl
+}
 .loginButton {
     @apply  w-fit text-center items-center text-sm text-[#DAE1E7]
      border-[#DAE1E7] border-2 rounded-xl px-3 py-2
@@ -40,19 +42,32 @@
     @apply w-full h-full cursor-pointer
 }
 
+.logo_holder {
+    @apply w-[56px] 
+}
+.logo {
+    @apply w-full h-full 
+}
+
 .map_container {
-    @apply px-4 py-3 bg-[#DAE1E7]
+    @apply px-4 py-3 bg-[#DAE1E7] flex justify-center tab:py-7
 }
 .map_holder {
-    @apply w-full
+    @apply w-full relative tab:max-w-[744px]
 }
 .map {
     @apply w-full h-full
 }
-
+.markers_container {
+    direction: ltr;
+    @apply w-full h-full absolute left-0 top-0 
+}
+.marker_holder {
+    @apply w-2 absolute bottom-[24%] left-[30%]
+}
 .sideMenu {
     transition: right .5s ease-in-out;
-    @apply w-screen h-screen bg-[#183661] absolute right-[-100vw] px-4 top-0
+    @apply w-screen h-screen bg-[#183661] absolute right-[-100vw] px-4 top-0 z-10
 }
 .open_sideMenu {
     @apply right-0 
@@ -72,9 +87,19 @@
     @apply w-full h-screen flex justify-center pt-16 bg-[#DAE1E7]
 }
 .login {
-    @apply flex flex-col items-center border-[#183661] border-2 px-4 py-6 bg-white
+    @apply flex flex-col items-center border-[#183661] border-2 px-4 py-4 bg-white
     rounded-2xl h-fit
 }
+.returnButton_holder {
+    @apply flex items-center flex-row-reverse justify-start w-full pb-4
+}
+.returnButton {
+    @apply w-6 h-6 mr-2
+}
+.returnButton_icon {
+    @apply w-full h-full
+}
+
 .form_choise {
     @apply flex justify-evenly w-full pb-4 h-fit
 }
@@ -103,3 +128,12 @@
 .validation_message {
     @apply text-sm text-[#183661]
 }
+.exeptionMessage {
+    @apply w-full text-center text-[#DD6B4D] text-base pt-3
+}
+.projectImage {
+    background-image: url('./assets/images/project.jpg');
+    background-size: contain;
+    @apply w-full 
+}
+

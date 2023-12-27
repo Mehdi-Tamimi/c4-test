@@ -2,13 +2,10 @@
 
 
 
-export default function SubmitButton({text,setForm}) {
-    const handleOnClick = (e) => {
-        setForm('validation')
-        e.preventDefault()
-    }
+export default function SubmitButton({text,handleOnClick}) {
+    
     return (
-        <button onClick={(e) => handleOnClick(e)} className="submitButton">
+        <button type="submit" onClick={handleOnClick} className="submitButton">
             {text}
         </button>
     )
