@@ -63,11 +63,15 @@
     @apply w-full h-full absolute left-0 top-0 
 }
 .marker_holder {
-    @apply w-2 absolute bottom-[24%] left-[30%]
+    @apply  absolute flex flex-row items-center
+}
+.marker_title {
+    @apply text-[#DD6B4D] text-sm pr-2
 }
 .sideMenu {
     transition: right .5s ease-in-out;
     @apply w-screen h-screen bg-[#183661] absolute right-[-100vw] px-4 top-0 z-10
+    tab:max-w-[240px]
 }
 .open_sideMenu {
     @apply right-0 

@@ -2,10 +2,12 @@ import LoginInput from "./loginInput"
 import SubmitButton from "./submitButton"
 import { postData } from "../utils/requests"
 import { useRef, useState } from "react"
+import { useNavigate } from "react-router-dom"
 
 const API = 'http://127.0.0.1:8000/api/auth/otp-check/'
 export default function Validation({setIsLogin,id,receiver,setUser}) {
 
+    const navigate = useNavigate()
     const passRef = useRef('')
     const [password, setPassword] = useState()
 
@@ -23,9 +25,10 @@ export default function Validation({setIsLogin,id,receiver,setUser}) {
         const response = postData(data , "POST", API)
     
         response
-        .then(res => console.log(res))
-        .then(() => {
+        .then(res => localStorage.setItem('user',JSON.stringify(res)))
+        .then((res) => {
             setIsLogin(true)
+            navigate('/')
         }).catch(err => console.log(`${err} : خطایی رخ داده`) )
     }
     return (
