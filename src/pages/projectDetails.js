@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import { getData } from "../utils/requests"
+import Map from "../components/map"
+import { calculateCordinates } from "../utils/functions"
+import ProjectDetailsItems from "../components/projectDetailsItems"
 
 
- 
 export default function ProjectDetails() {
 
     
@@ -22,9 +24,20 @@ export default function ProjectDetails() {
     },[])
 
     const {id,title,status,units_number,completed_units_number,
-        sold_units_number,x_location,y_location,units_facilitie,
+        sold_units_number,location_x,location_y,units_facilities,
         contractor_name,paid_invitations_number,applied_people_number,
-        image_url} = data? data: {}
+        image_url,project_area} = data? data: {}
+
+    const [x,y] =  calculateCordinates(location_x,location_y)
+    console.log(data)
+    const marker = <div
+                    style={{
+                        left: `${x}%`,
+                        bottom: `${y}%`
+                    }}
+                    className="marker_holder"> 
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="32" viewBox="0 0 384 512"><path fill="#FFF80A" d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0M192 128a64 64 0 1 1 0 128a64 64 0 1 1 0-128"/></svg>
+                    </div>
     return (
         <div className="detailsPage_container">
             <div className="detailsPage">
@@ -32,8 +45,16 @@ export default function ProjectDetails() {
                 <h1 className="detailsPage_title">
                     {title}
                 </h1>
-                <div>
-                    
+                <Map markers={[marker]}/>
+                <div className="projectPreview_container">
+                    <ProjectDetailsItems title={`وضعیت پروژه:`} text={status}/>
+                    <ProjectDetailsItems title={'مساحت پروژه:'} text={project_area + ' متر مربع'}/>
+                    <ProjectDetailsItems title={'پیمانکار:'} text={contractor_name} />
+                    <ProjectDetailsItems title={'تعداد واحد‌ها:'} text={units_number}/>
+                    <ProjectDetailsItems title={'واحد های کامل شده:'} text={completed_units_number}/>
+                    <ProjectDetailsItems title={'واحد های فروخته شده:'} text={sold_units_number}/>
+                    <ProjectDetailsItems title={'امکانات رفاهی مجموعه:'} text={units_facilities} />
+                    <ProjectDetailsItems title={'افراد متقاضی:'} text={applied_people_number + ' نفر'} />
                 </div>
             </div>
             

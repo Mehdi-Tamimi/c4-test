@@ -51,6 +51,7 @@
 
 .map_container {
     @apply px-4 py-3 bg-[#DAE1E7] flex justify-center tab:py-7
+     border-[#DD6B4D] border-b-2
 }
 .map_holder {
     @apply w-full relative tab:max-w-[744px]
@@ -146,7 +147,7 @@
     @apply text-[#DAE1E7] text-base
 }
 .projectPreview_container {
-    @apply bg-[#183661] py-4 px-4
+    @apply bg-[#183661] py-4 px-4 w-full
 }
 .projectPreview {
 
@@ -165,14 +166,15 @@
 }
 
 .detailsPage_container {
-    @apply bg-[#DAE1E7] w-full
+    @apply bg-[#DAE1E7] w-full pt-4
 }
 .detailsPage {
     @apply flex flex-col items-center
 }
 
 .detailsPage_title {
-    @apply text-3xl text-[#DD6B4D] w-full text-center
+    @apply text-3xl text-[#DD6B4D] text-center border-[#DD6B4D]
+    border-b-2 pb-4 border-0 px-7
 }
 
 

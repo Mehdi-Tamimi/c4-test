@@ -22,7 +22,6 @@ export const createMarkers = (projects,active,setActive) => {
 
         const markers = projects.map((project,index) => {
             const [x,y] = calculateCordinates(project.location_x,project.location_y)
-            console.log(x,y)
             return (
             <div 
             onClick={() => (active === project.id)? setActive(null):setActive(project.id)}
