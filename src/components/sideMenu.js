@@ -2,14 +2,26 @@ import accountLogo from '../assets/icons/sharp-account-circle.svg'
 import closeMenu from '../assets/icons/close-line.svg'
 import { useNavigate } from 'react-router-dom'
 import buildingLogo from '../assets/icons/building-one.svg'
-
-
-export default function SideMenu({isOpen,setIsOpen,isLogin}) {
+import logoutIcon from '../assets/icons/logout-circle-r-line.svg'
+import { fullName } from '../utils/functions'
+export default function SideMenu({user,isOpen,setIsOpen,isLogin,setIsLogin}) {
     const navigate = useNavigate()
     const handleOnClick = () => {
-        navigate('/login')
+        if (!isLogin) {
+            navigate('/login')
+        }
+        
         setIsOpen(false)
     }
+    const handleOnLogout = () => {
+        localStorage.removeItem('user')
+        setIsLogin(false)
+
+    }
+    const handleOnClickProjects = () => {
+        navigate('/')
+    }
+    const name = fullName(user)
     return (
         <div className={`sideMenu ${isOpen? 'open_sideMenu' : null}`}>
             <div onClick={() => setIsOpen(false)} className="menu_holder">
@@ -22,16 +34,25 @@ export default function SideMenu({isOpen,setIsOpen,isLogin}) {
                         <img className='menu' src={accountLogo} alt={'account'}/>
                     </div>
                     <div className='item_text'>
-                       ورورد / ثبت نام
+                       {isLogin? `${name}`:'ورورد / ثبت نام'}
                     </div>
         
                 </div>
-                <div onClick={handleOnClick} className='item_holder'>
+                <div className={isLogin? 'item_holder':'hidden'}>
                     <div className='menu_holder'>
                         <img className='menu' src={buildingLogo} alt={'projects'}/>
                     </div>
                     <div className='item_text'>
                        پروژه های من
+                    </div>
+        
+                </div>
+                <div onClick={handleOnLogout} className={isLogin? 'item_holder':'hidden'}>
+                    <div className='menu_holder'>
+                        <img className='menu' src={logoutIcon} alt={'projects'}/>
+                    </div>
+                    <div className='item_text'>
+                        خروج
                     </div>
         
                 </div>

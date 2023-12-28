@@ -20,11 +20,12 @@ export default function RegisterForm({setForm}) {
 
     const handleOnSubmit = (e) => {
         e.preventDefault()
-
+        
         if (exeption) {
-
+            console.log(1)
         }
         else {
+            
             const response = postData(details , "POST", API)
     
             response
@@ -53,7 +54,7 @@ export default function RegisterForm({setForm}) {
                 "phone_number": phone_numberRef.current.value
             }
             setDetails(userDetails)
-            setForm('login')
+            
     
         }
         

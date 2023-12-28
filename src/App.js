@@ -11,7 +11,6 @@ export default function App() {
 
   const [isLogin, setIsLogin] = useState(false)
   const [user, setUser] = useState(null)
-
   let userToken = localStorage.getItem('user')
   
   useEffect(() => {
@@ -19,24 +18,25 @@ export default function App() {
     const token = JSON.parse(userToken).token
 
     const userData = fetchUrl(token, API, "GET")
-    userData.then(res => console.log(res))
+    userData.then(res => setUser(res))
+            .then(() => setIsLogin(true))
+            .catch(err => console.log(err))
 
     
     }
     
     
-  },[])
-
+  },[isLogin])
   return (
     <>
       
       <BrowserRouter>
           <div className="main_container">
-              <Header isLogin={isLogin} user={user} />
+              <Header setIsLogin={setIsLogin} isLogin={isLogin} user={user} />
               <Routes>
                   <Route path="/" element={<Home/>} />
                   <Route path="/login" element={<Login setUser={setUser} setIsLogin={setIsLogin}/>} />
-                  <Route path="/my-projects/:id" element={<ProjectDetails/>}/>
+                  <Route path="/:id" element={<ProjectDetails/>}/>
               </Routes>
           </div>
       </BrowserRouter>

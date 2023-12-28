@@ -2,7 +2,7 @@ import { useState } from 'react'
 import menu from '../assets/icons/round-menu.svg'
 import SideMenu from './sideMenu'
 import logo from '../assets/images/logo.svg'
-export default function Header({isLogin,user}) {
+export default function Header({isLogin,user,setIsLogin}) {
     
     const [isOpen, setIsOpen] = useState(false)
 
@@ -10,6 +10,7 @@ export default function Header({isLogin,user}) {
         <div className="header">
 
             <SideMenu 
+            setIsLogin={setIsLogin}
             isLogin={isLogin}
             user={user}
             isOpen={isOpen}

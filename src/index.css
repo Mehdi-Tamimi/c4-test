@@ -63,11 +63,9 @@
     @apply w-full h-full absolute left-0 top-0 
 }
 .marker_holder {
-    @apply  absolute flex flex-row items-center
+    @apply  absolute flex flex-row items-center w-fit 
 }
-.marker_title {
-    @apply text-[#DD6B4D] text-sm pr-2
-}
+
 .sideMenu {
     transition: right .5s ease-in-out;
     @apply w-screen h-screen bg-[#183661] absolute right-[-100vw] px-4 top-0 z-10
@@ -135,9 +133,46 @@
 .exeptionMessage {
     @apply w-full text-center text-[#DD6B4D] text-base pt-3
 }
-.projectImage {
-    background-image: url('./assets/images/project.jpg');
-    background-size: contain;
+.projectImage_holder {
     @apply w-full 
 }
+.projectImage {
+    @apply w-full
+}
+.projectDetails_Items {
+    @apply text-[#DD6B4D] text-base
+}
+.projectDetails_Items_holder {
+    @apply text-[#DAE1E7] text-base
+}
+.projectPreview_container {
+    @apply bg-[#183661] py-4 px-4
+}
+.projectPreview {
+
+}
+.projectPreview_title {
+    @apply text-xl text-[#DD6B4D] pb-3
+}
+.projectPreview_detail {
+    @apply text-base text-[#DAE1E7] pl-2
+}
+.projectPreview_detail_holder {
+    @apply flex items-center py-1
+}
+.more_details_link {
+    @apply text-base text-[#FFF80A] flex
+}
+
+.detailsPage_container {
+    @apply bg-[#DAE1E7] w-full
+}
+.detailsPage {
+    @apply flex flex-col items-center
+}
+
+.detailsPage_title {
+    @apply text-3xl text-[#DD6B4D] w-full text-center
+}
+
 
