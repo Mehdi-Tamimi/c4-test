@@ -9,11 +9,14 @@ import { useNavigate } from "react-router-dom"
 export default function Login({setIsLogin,setUser}) {
 
     const navigate = useNavigate()
+
     // this states is used to determine the form should be shown 
     const [form, setForm] = useState('login')
 
+    // value of login form (phone number) that passed to the server for login
     const [receiver, setReceiver] = useState('')
 
+    // request id that is recived from server for validation of user
     const [id, setId] = useState()
 
     // determine the component according to the form state
@@ -26,7 +29,9 @@ export default function Login({setIsLogin,setUser}) {
                       setIsLogin={setIsLogin}
                       setUser={setUser}/>
     
+
     const handleOnClick = (e) => {
+        // handle click on the exit button in login page
         (form === 'validation')? setForm('login'):navigate('/')
     }
     

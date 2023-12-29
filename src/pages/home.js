@@ -22,8 +22,10 @@ export default function Home() {
         }
         return null
     }
+    // console.log(projects)
     const project = projectIdentifyer()
     const markers = createMarkers(projects,active,setActive)
+    // console.log(markers)
     return (
         <div>
             <Map markers={markers} />

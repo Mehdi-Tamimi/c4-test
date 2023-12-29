@@ -7,26 +7,26 @@ import { useState, useEffect } from "react"
 import { fetchUrl } from "./utils/requests"
 
 const API = 'http://127.0.0.1:8000/api/auth/authenticate/'
+
 export default function App() {
 
   const [isLogin, setIsLogin] = useState(false)
   const [user, setUser] = useState(null)
+
+  // getting token from local strage for authintication
   let userToken = localStorage.getItem('user')
-  
   useEffect(() => {
+
     if (userToken) {
-    const token = JSON.parse(userToken).token
-
-    const userData = fetchUrl(token, API, "GET")
-    userData.then(res => setUser(res))
-            .then(() => setIsLogin(true))
-            .catch(err => console.log(err))
-
-    
+        const token = JSON.parse(userToken).token
+        const userData = fetchUrl(token, API, "GET")
+        userData.then(res => setUser(res))
+                .then(() => setIsLogin(true))
+                .catch(err => console.log(err))
     }
-    
-    
-  },[isLogin])
+
+  },[isLogin,userToken])
+ 
   return (
     <>
       

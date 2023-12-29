@@ -8,7 +8,7 @@ import map from '../assets/images/map.png'
 export default function Map({markers}) {
 
 
-    
+    console.log(markers)
     return (
         <div className='map_container'>
             <div className="map_holder">

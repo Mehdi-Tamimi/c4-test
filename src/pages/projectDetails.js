@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { useParams } from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
 import { getData } from "../utils/requests"
 import Map from "../components/map"
 import { calculateCordinates } from "../utils/functions"
@@ -55,6 +55,8 @@ export default function ProjectDetails() {
                     <ProjectDetailsItems title={'واحد های فروخته شده:'} text={sold_units_number}/>
                     <ProjectDetailsItems title={'امکانات رفاهی مجموعه:'} text={units_facilities} />
                     <ProjectDetailsItems title={'افراد متقاضی:'} text={applied_people_number + ' نفر'} />
+                    
+
                 </div>
             </div>
             

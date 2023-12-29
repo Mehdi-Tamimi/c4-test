@@ -5,23 +5,34 @@ import buildingLogo from '../assets/icons/building-one.svg'
 import logoutIcon from '../assets/icons/logout-circle-r-line.svg'
 import { fullName } from '../utils/functions'
 export default function SideMenu({user,isOpen,setIsOpen,isLogin,setIsLogin}) {
+
+
     const navigate = useNavigate()
+    const name = fullName(user)
+
     const handleOnClick = () => {
+        // login page button click handler
         if (!isLogin) {
             navigate('/login')
         }
-        
+
         setIsOpen(false)
     }
+
+
     const handleOnLogout = () => {
+        // delete the user's token and set login state false
         localStorage.removeItem('user')
         setIsLogin(false)
 
     }
+
+    
     const handleOnClickProjects = () => {
         navigate('/')
     }
-    const name = fullName(user)
+
+    
     return (
         <div className={`sideMenu ${isOpen? 'open_sideMenu' : null}`}>
             <div onClick={() => setIsOpen(false)} className="menu_holder">
