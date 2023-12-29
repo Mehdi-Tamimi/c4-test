@@ -4,6 +4,7 @@ import { getData } from "../utils/requests"
 import Map from "../components/map"
 import { calculateCordinates } from "../utils/functions"
 import ProjectDetailsItems from "../components/projectDetailsItems"
+import ParticipationForm from "../components/participationForm"
 
 
 export default function ProjectDetails() {
@@ -11,12 +12,15 @@ export default function ProjectDetails() {
     
     const params = useParams()
     const API = `http://127.0.0.1:8000/api/core/projects/${params.id}`
-    const [data, setData] = useState()
-    
-    useEffect(() => {
 
+    // defined to read the data of project
+    const [data, setData] = useState()
+
+    useEffect(() => {
+        // getting project's data
         const response = getData(API)
         response.then(res => setData(res))
+        .catch(err => console.log(err))
 
         return () => {
             setData(null)
@@ -24,12 +28,12 @@ export default function ProjectDetails() {
     },[])
 
     const {id,title,status,units_number,completed_units_number,
-        sold_units_number,location_x,location_y,units_facilities,
-        contractor_name,paid_invitations_number,applied_people_number,
-        image_url,project_area} = data? data: {}
+        sold_units_number,location_x,location_y,contractor_name,
+        applied_people_number,project_area} = data? data: {}
+
 
     const [x,y] =  calculateCordinates(location_x,location_y)
-    console.log(data)
+    // postioning maarkes on the map
     const marker = <div
                     style={{
                         left: `${x}%`,
@@ -47,16 +51,20 @@ export default function ProjectDetails() {
                 </h1>
                 <Map markers={[marker]}/>
                 <div className="projectPreview_container">
-                    <ProjectDetailsItems title={`وضعیت پروژه:`} text={status}/>
-                    <ProjectDetailsItems title={'مساحت پروژه:'} text={project_area + ' متر مربع'}/>
-                    <ProjectDetailsItems title={'پیمانکار:'} text={contractor_name} />
-                    <ProjectDetailsItems title={'تعداد واحد‌ها:'} text={units_number}/>
-                    <ProjectDetailsItems title={'واحد های کامل شده:'} text={completed_units_number}/>
-                    <ProjectDetailsItems title={'واحد های فروخته شده:'} text={sold_units_number}/>
-                    <ProjectDetailsItems title={'امکانات رفاهی مجموعه:'} text={units_facilities} />
-                    <ProjectDetailsItems title={'افراد متقاضی:'} text={applied_people_number + ' نفر'} />
-                    
+                    <div>
+                        <ProjectDetailsItems title={`وضعیت پروژه:`} text={status}/>
+                        <ProjectDetailsItems title={'مساحت پروژه:'} text={project_area + ' متر مربع'}/>
+                        <ProjectDetailsItems title={'پیمانکار:'} text={contractor_name} />
+                        <ProjectDetailsItems title={'تعداد واحد‌ها:'} text={units_number}/>
+                        <ProjectDetailsItems title={'واحد های کامل شده:'} text={completed_units_number}/>
+                        <ProjectDetailsItems title={'واحد های فروخته شده:'} text={sold_units_number}/>
+                        {/* <ProjectDetailsItems title={'امکانات رفاهی مجموعه:'} text={units_facilities} /> */}
+                        <ProjectDetailsItems title={'افراد متقاضی:'} text={applied_people_number + ' نفر'} />
 
+                    </div>
+                    <ParticipationForm id={id} />
+                    
+                    
                 </div>
             </div>
             

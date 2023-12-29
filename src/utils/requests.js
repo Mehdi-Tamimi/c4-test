@@ -47,4 +47,14 @@ export async function fetchUrl(Token,url,method) {
     return the_response 
 
 }
+// export function postFile(url, file) {
+
+//   const reader = new FileReader()
+
+//   reader.onload = (e) => {
+//       e.target.result
+//   }
+
+
+// }
 

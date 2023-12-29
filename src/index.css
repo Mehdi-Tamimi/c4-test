@@ -177,4 +177,18 @@
     border-b-2 pb-4 border-0 px-7
 }
 
-
+.participationFrom_holder {
+    @apply bg-[#DAE1E7] rounded-xl py-3 mt-3
+}
+.participationForm {
+    @apply flex flex-col items-center
+}
+.participationForm_message {
+    @apply text-base text-[#DD6B4D]
+}
+.participationForm_input {
+    @apply py-2 text-[#DD6B4D]
+}
+.participationForm_button {
+    @apply bg-[#183661] text-lg px-6 py-1 rounded-xl text-[#DD6B4D]
+}
